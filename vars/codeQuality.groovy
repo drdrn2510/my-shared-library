@@ -2,7 +2,7 @@ def sonarCreateProject(String projectKey) {
     withSonarQubeEnv('SonarQubeScanner') {
         sh """
 curl -s -u "${env.SONAR_AUTH_TOKEN}:" \
--X POST"${env.SONAR_HOST_URL}/api/projects/create" \
+-X POST "${env.SONAR_HOST_URL}/api/projects/create" \
 -d "project=${projectKey}" \
 -d "name=${projectKey}"
 """
